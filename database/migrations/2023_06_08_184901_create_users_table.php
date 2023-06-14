@@ -7,24 +7,24 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Esegui le migrazioni
      */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->timestamps();
+            $table->string('name'); // Colonna per il nome dell'utente
+            $table->string('email')->unique(); // Colonna per l'email dell'utente (univoca)
+            $table->string('password'); // Colonna per la password dell'utente
+            $table->timestamps(); // Colonne per la registrazione delle timestamp di creazione e aggiornamento
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Ripristina le migrazioni
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('users'); // Elimina la tabella degli utenti
     }
 };
